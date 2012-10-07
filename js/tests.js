@@ -1,5 +1,7 @@
 
-
+//-------------------------------
+//	TEST BOARD CLASS
+//-------------------------------
 test( "Test board", function() {
 	var b=new Board();
 	deepEqual( b.array,[[0,0,0,0,0,0],
@@ -14,8 +16,9 @@ test( "Test board", function() {
 	throws(function(){b.addChip(N_SQUARES_X,1)},"Invalid column validation");
 	throws(function(){b.addChip(1,-1)},"Invalid player validation");
 	
+	
 	//-----------------------------------------
-	// Add chip test
+	// Add chip method test
 	//-----------------------------------------
 	ok(b.addChip(0,PLAYER_A) == N_SQUARES_Y-1);
 	deepEqual( b.array,[[0,0,0,0,0,PLAYER_A],
@@ -76,7 +79,7 @@ test( "Test board", function() {
 						
 						
 	//-----------------------------------------
-	//	Connect 4 
+	//	Connect 4 method test
 	//-----------------------------------------	
 	ok(b.addChip(N_SQUARES_X-2,PLAYER_A) == N_SQUARES_Y-1);
 	ok(b.addChip(N_SQUARES_X-3,PLAYER_A) == N_SQUARES_Y-1);
@@ -167,7 +170,9 @@ test( "Test board", function() {
 	
 });
 
-
+//-------------------------------
+//	TEST GAME CLASS
+//-------------------------------
 test( "Test game", function() {
 	var g=new Game();
 	g.move(0); //A

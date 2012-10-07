@@ -1,4 +1,6 @@
-
+//--------------------------------------------
+// STATIC FINAL GLOBAL VARIABLES
+//--------------------------------------------
 var N_SQUARES_X = 7;
 var N_SQUARES_Y = 6;
 var EMPTY_SQUARE=0;
@@ -8,7 +10,11 @@ var PLAYER_B=2;
 //--------------------------------------------
 // CLASS BOARD
 //--------------------------------------------
-
+/**
+*	This class respresent a connect 4 board.
+*	It's in charge of controlling the chips, their next positions
+*	and if theres a winning configuration.
+*/
 var Board =function(){
     this.nSquaresX=N_SQUARES_X;
     this.nSquaresY=N_SQUARES_Y;
@@ -27,8 +33,9 @@ Board.prototype ={
     nSquaresX: N_SQUARES_X,
     nSquaresY: N_SQUARES_Y,
     array:new Array(),
- 
-    
+    /**
+    *	This method will add a chip of a player in a column
+    */
     addChip: function(column,player){
     	if(column < 0 || column >= this.nSquaresX){
 	    	throw "Invalid column number";
@@ -51,8 +58,10 @@ Board.prototype ={
     	
     	this.array[column][squarePosition] = player;
     	return squarePosition;
-    }
-    ,
+    },
+    /**
+    *	This method will detect if there is a winning configuration and will return the place of the chips
+    */
     connect4:function(){
 	   for(var i=0;i<this.nSquaresX;i++){
     		for(var j=0;j<this.nSquaresY;j++){
@@ -79,8 +88,11 @@ Board.prototype ={
 	    	}  
 		}	
 		return null;    
-    }
-    ,
+    },
+    /**
+    *	This method is an auxiliar method to connect4 method.
+    *	We will use recursion to detect the winning configurations.
+    */
     connect4rec:function(depth,x,y,directionX,directionY,player){
     	
     	if( x < 0 || y < 0 || x >= this.nSquaresX || y >= this.nSquaresY ){
@@ -110,18 +122,29 @@ Board.prototype ={
 //--------------------------------------------
 // CLASS GAME
 //--------------------------------------------
-
+/**
+*	This class represents a connect 4 game
+*/
 var Game =function(){
 	this.connect4=null;
 	this.board=new Board();
 	this.turn=PLAYER_A;
 }
 Game.prototype ={
+	/**
+	*	If a game is over, this will be filled with the position of the winning chips
+	*/
 	connect4:null,
+	/**
+	*	The board
+	*/
 	board:new Board(),
+	/**
+	*	What player is playing now
+	*/
 	turn:PLAYER_A,
 	/**
-		if cant move will return -1;
+	* 	if can't move will return -1;
 	*/
 	move: function(column){
 		// Is game over?
