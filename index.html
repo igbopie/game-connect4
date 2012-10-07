@@ -1,1 +1,47 @@
-lala
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ignacio Bona - Connect4</title>
+        <link href='http://fonts.googleapis.com/css?family=Ranchers' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.10.0.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+    </head>
+    
+    <body>
+       	
+        <div id="header">
+        	<div class="wrapper">
+        		<div class="title">
+	        		<h1>Connect 4</h1>
+        		</div>
+	        	<div class="author">
+	        		<span>by</span>
+	        		<span>Ignacio Bona</span>
+	        	</div>
+        	</div>
+        </div>
+        
+        
+        <div id="board">
+        	<div class="wrapper">
+        		<div class="chip active player1"></div>
+        		<div id="chip-slider"></div>
+        		<div id="board-table"></div>
+        	</div>
+        </div>
+        
+        
+        <div class="wrapper" style="display:none">
+        	<div>Tests</div>
+        	<div id="qunit"></div>
+        </div>
+        
+        <script src="//code.jquery.com/jquery.min.js"></script>
+        <script src="//code.jquery.com/qunit/qunit-1.10.0.js"></script>
+        <script type="text/javascript" src="js/model.js"></script>
+        <script type="text/javascript" src="js/tests.js"></script>
+        <script type="text/javascript" src="js/ui.js"></script>
+
+    </body>
+    
+</html>
